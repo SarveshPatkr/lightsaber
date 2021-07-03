@@ -5,6 +5,30 @@
     scroll-behavior: smooth;
 }
 
+
+.welcome{
+    display: block;
+    position: fixed;
+    width: 90%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aliceblue;
+    z-index: 1000;
+}
+#closeBtn{
+    position: relative;
+    right: -97%;
+    top: 0%;
+    color: grey;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+
+
+
 .container{
     /* background-image: radial-gradient(rgb(49, 49, 49), rgb(36, 36, 36), rgb(17, 17, 17)); */
     width: 100vw;
