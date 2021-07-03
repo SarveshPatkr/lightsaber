@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+    scroll-behavior: smooth;
+}
+
+.container{
+    /* background-image: radial-gradient(rgb(49, 49, 49), rgb(36, 36, 36), rgb(17, 17, 17)); */
+    width: 100vw;
+    background-color: rgb(17, 17, 17);
+    height: 100vh;
+    position: absolute;
+    /* bottom: -80vh; */
+    overflow-y: hidden;
+    overflow-x: scroll;
+    
+}
+.scene{
+    background-color: rgb(17, 17, 17);
+    height: 84%;
+    overflow-y: hidden;
+    scroll-snap-points-y: repeat(50vh);
+    scroll-snap-type: y mandatory;
+}
+
+
+.handle{
+    position: absolute;
+    padding: 10px;
+    right: 50%;
+    bottom: 8%;
+    width: 5px;
+    z-index: 100;
+    height: 50px;
+    box-shadow:  0  5px rgb(194, 194, 194) inset,0  7px rgb(255, 251, 0) inset,0  9px rgb(0, 0, 0) inset,0  11px rgb(251, 255, 0) inset, 0  25px rgba(70, 70, 70, 0.986) inset, 0  30px rgb(78, 78, 78) inset, 0  32px rgb(97, 97, 97) inset,0  34px rgb(109, 109, 109) inset,0  35px rgb(0, 0, 0) inset;
+    background-image: linear-gradient(rgb(177, 177, 177), rgb(131, 131, 131));
+    transform: translateX(50%)
+}
+.handle::after{
+    border-left: 60px solid rgba(17, 17, 17, 0.9);
+    border-right: 60px solid rgba(17, 17, 17, 0.9);
+    border-top: 25px solid transparent;
+    /* border-radius: 10000px 10000px 100px 100px ; */
+    content: " ";
+    padding: 12px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    z-index: 0;
+    height: 50px;
+
+}
+input{
+    width: 0;
+    transform: translateX(-25%);
+}
+.off,.on {
+    height: 100%;
+    scroll-snap-align: center;
+
+}
+.off {
+    background-color: rgb(17, 17, 17);
+}
+.on {
+    background-color: rgb(17, 17, 17);
+    padding-top: 30px;
+    height: 70vh;
+}
+::-webkit-scrollbar{
+    width: 0px;
+}
+.blade{
+    height: 100%;
+    width: 20px;
+    position: relative;
+    right: -50%;
+    bottom: -5px;
+    
+    box-shadow: 0 -10px 15px white, 0 0 30px white,0 0 45px white, 0 0 3px white inset;
+    border-radius: 10px 10px 0 0;
+    transform: translateX(-50%);
+    background-color: rgb(255, 255, 255);
+}
+.colors{
+    position: fixed;
+    display: flex;
+    bottom: 5px;
+
+    width: fit-content;
+    z-index: 200;
+    align-items: center;
+    overflow: scroll;
+    flex-wrap: wrap;
+}
+@media only screen and (max-width:34.375em) { 
+	.colors{
+        font-size: 1vh;
+    }
+}
+.colors > label{
+    align-items: center;
+    display: flex;
+    overflow: scroll;
+    background-color: rgba(255, 255, 255, 0.096);
+    padding: 10px;
+    margin: auto;
+    margin-left: 10px;
+
+}
+.colors > label:hover{
+    background-color: rgba(255, 255, 255, 0.377);
+
+}

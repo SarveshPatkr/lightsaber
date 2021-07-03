@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <label class="handle"><input type="checkbox" name="handle" id="handle"></label>
+    <div class="container">
+        <div class="scene">
+            <div class="off" id="off"></div>
+            <div class="on">
+                <div class="blade" id="blade"></div>
+            </div>
+        </div>
+        <div class="colors">
+            <label for="1"> <span>Red lightsaber</span><input type="radio" value="red" id="1" class="c" name="c"></label>
+            <label for="2"><span>Blue Lightsaber</span><input type="radio" value="blue" id="2" class="c" name="c"></label>
+            <label for="3"><span>Green lightsabers</span><input type="radio" value="green" id="3" class="c" name="c"></label>
+            <label for="4"><span>Darksaber</span><input type="radio" value="black" id="4" class="c" name="c"></label>
+        </div>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var blade = document.querySelector(".blade");
+        var handle = document.getElementById("handle");
+        var scene = document.getElementsByClassName("scene");
+        var red = "red";
+        var blue = "blue"
+        var white = "white";
+        var green = "green"
+        var Saber;
+        var audioElement = document.createElement('audio');
+        var audioElementPlay = document.createElement('audio');
+        var audioElementOff = document.createElement('audio');
+        audioElement.setAttribute('src', './Open.mp4');
+        audioElementPlay.setAttribute('src', './hum.mp4');
+        audioElementPlay.addEventListener('ended', function () {
+            this.play();
+        }, false);
+        audioElementOff.setAttribute('src', './Close.mp4');
+        $(handle).click(function () {
+            if ($(handle).is(':checked')) {
+                //scroll down 
+                $(".scene").animate({ scrollTop: 100000 }, 500);
+                audioElement.addEventListener('ended', function () {
+                    audioElementPlay.play();
+                }, false);
+                audioElement.play();
+                audioElementPlay.play();
+            }
+            else {
+                audioElementOff.play();
+                audioElement.pause();
+                audioElementPlay.pause();
+                $(".scene").animate({ scrollTop: 0 }, 500);
+
+            }
+        })
+
+
+        $('.c').click(function () {
+            if ($("#1")[0].checked) {
+                //logic here
+                Saber = red;
+                blade.style.borderRadius = "10px 10px 0 0";
+                blade.style.backgroundColor = "white";
+                blade.style.boxShadow = `0 -10px 15px ${Saber}, 0 0 30px ${Saber},0 0 45px ${Saber}, 0 0 3px ${Saber} inset`;
+            }
+            if ($("#2")[0].checked) {
+                //logic here
+                Saber = blue;
+                blade.style.borderRadius = "10px 10px 0 0";
+                blade.style.backgroundColor = "white";
+                blade.style.boxShadow = `0 -10px 15px ${Saber}, 0 0 30px ${Saber},0 0 45px ${Saber}, 0 0 3px ${Saber} inset`;
+            }
+            if ($("#3")[0].checked) {
+                //logic here
+                Saber = green;
+                blade.style.borderRadius = "10px 10px 0 0";
+                blade.style.backgroundColor = "white";
+                blade.style.boxShadow = `0 -10px 15px ${Saber}, 0 0 30px ${Saber},0 0 45px ${Saber}, 0 0 3px ${Saber} inset`;
+            }
+            if ($("#4")[0].checked) {
+                //logic here
+                Saber = white;
+                // change bgcolor
+                blade.style.backgroundColor = "black";
+                // change radius
+                blade.style.borderRadius = "60px 2px 0 0";
+                blade.style.boxShadow = `0 -10px 15px ${Saber}, 0 0 30px ${Saber},0 0 45px ${Saber}, 0 0 3px ${Saber} inset`;
+            }
+        });
+    </script>
+</body>
+
+</html>
